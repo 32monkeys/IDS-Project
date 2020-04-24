@@ -17,7 +17,7 @@ class Potentiometer{
         }
 
         int readPotentiometer(){
-            int heightVal = (analogRead(pNumber) * 200) / 4095;
+            int heightVal = (analogRead(pNumber) * 60) / 4095;
             return heightVal;
         }
 

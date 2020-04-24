@@ -36,8 +36,8 @@ class Controller{
             return yDRead;
         }
         String butReadController(){
-            if(analogRead(butNumber) < 50) butDRead = "PRESSED";
-            else butDRead = "";
+            if(analogRead(butNumber) < 50) butDRead = "TRUE";
+            else butDRead = "FALSE";
             return butDRead;
         }
 };
