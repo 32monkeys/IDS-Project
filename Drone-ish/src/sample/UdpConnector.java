@@ -66,7 +66,7 @@ public class UdpConnector implements Runnable {
         try {
             socket.receive(packet);
             UdpMessage udpMessage = new UdpMessage(packet.getData(), packet.getLength(), packet.getAddress(), packet.getPort());
-            //System.out.println(udpMessage);
+            System.out.println(udpMessage);
             return  udpMessage;
         } catch (IOException e) {
             e.printStackTrace();

@@ -33,7 +33,7 @@ public class Controller {
     public void handleMessage(UdpMessage e) {
         try {
             String[] msgArray = e.getMessage().split(",");
-            showCommands(msgArray);
+            textArea.setText(showCommands(msgArray));
             potSize(msgArray[0]);
             moveX(msgArray[1]);
             moveY(msgArray[2]);
@@ -43,7 +43,7 @@ public class Controller {
         }
     }
 
-    private void showCommands(String[] msgArray) {
+    private String showCommands(String[] msgArray) {
         String potRead = "Potentiometer: " + msgArray[0];
         String xRead = "x: " + msgArray[1];
         String yRead = "y: " + msgArray[2];
@@ -52,7 +52,7 @@ public class Controller {
                 xRead + "\n" +
                 yRead + "\n" +
                 butRead + "\n";
-        textArea.setText(result);
+        return result;
     }
 
     private void potSize(String potentiometer) {
