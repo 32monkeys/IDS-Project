@@ -13,12 +13,11 @@ class Potentiometer{
         {
             this->pNumber = pNumber;
             pinMode(pNumber, INPUT);
-            //this->lastRead = this->readPotentiometer();
         }
 
         int readPotentiometer(){
             int heightVal = (analogRead(pNumber) * 60) / 4095;
-            return heightVal;
+            return heightVal + 10;
         }
 
         String altitude(){
@@ -32,37 +31,5 @@ class Potentiometer{
         void setSensitivity(int sensitivity)
         {
             this->sensitivity = sensitivity;
-        }
-
-        bool hasChanged()
-        {
-            return abs(lastRead-analogRead(pNumber)) > sensitivity;
-        }
-
-        void setWarning(String message)
-        {
-
-        }
-
-        void setInfo(String message)
-        {
-            this->infoMessage = message;
-        }
-
-        void loop()
-        {
-            if (this->hasChanged())
-            {
-                int digiRead = digitalRead(this->pNumber);
-                
-                if (this->hasChanged() && this->infoMessage.length() > 0)
-                {
-                    Serial.println(this->infoMessage);
-                }
-                if ((digiRead == 0 || digiRead == 4095) && this->warningMessage.length() > 0);
-                {
-                    Serial.println(this->warningMessage);
-                }
-            }
         }
 };

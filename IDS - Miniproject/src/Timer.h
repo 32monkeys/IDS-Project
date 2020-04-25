@@ -1,17 +1,22 @@
+#include <Arduino.h>
+
 class Timer {
     public:
-        Timer(long milliseconds);
-        long getTime();
-        boolean check();
+        long interval;
+        unsigned long currentMillis = millis();
+        unsigned long previousMillis = 0;
 
-        boolean Timer::check(){
-        this->frame = millis() - this->timeSinceStart;
-        this->timeSinceStart = millis();
-    if(this->iteratorTime>this->waitingTime){
-        this->iteratorTime = 0;
-        return true;
-    } else {
-        this->iteratorTime += this->frame;
-        return false;
+        Timer(long interval){
+            this->interval = interval;
+        };
+    
+        bool check(){
+            currentMillis = millis();
+            if(currentMillis - previousMillis > interval){
+                previousMillis = currentMillis;
+                return true;
+            } else {
+                return false;
+            }
     }
 };

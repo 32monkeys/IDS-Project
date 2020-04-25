@@ -11,7 +11,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Our Echo Server");
+        primaryStage.setTitle("Drone Visual");
         primaryStage.setScene(new Scene(root, 600, 475));
         primaryStage.show();
     }
