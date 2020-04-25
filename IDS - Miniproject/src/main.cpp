@@ -16,7 +16,7 @@ Controller controller(34,35,32);
 Timer timer(50);
 
 
-Target drone("NETGEAR61","ME262emp");
+Target drone("Wifiname","Password");
 
 void setup() {
   potentiometer.setSensitivity(50);

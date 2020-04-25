@@ -53,7 +53,7 @@ class Target {
         }
 
         void sendCommand(String command) {
-            udpSender.beginPacket("10.0.0.4", udpPort);
+            udpSender.beginPacket(droneIp.c_str(), udpPort);
             udpSender.printf(command.c_str());
             udpSender.endPacket();    
         }
